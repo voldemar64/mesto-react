@@ -6,6 +6,7 @@ function AddPlacePopup(props) {
     <PopupWithForm
       isOpen={props.isOpen}
       onClose={props.onClose}
+      buttonText={props.buttonText}
       name={'add'}
       title={'Новое место'}
       form={'add_pic'}

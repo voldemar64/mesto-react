@@ -6,6 +6,7 @@ function EditProfilePopup(props ) {
     <PopupWithForm
       isOpen={props.isOpen}
       onClose={props.onClose}
+      buttonText={props.buttonText}
       name={'edit'}
       title={'Редактировать профиль'}
       form={'profile_edit'}

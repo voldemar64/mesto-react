@@ -6,28 +6,12 @@ import ImagePopup from './ImagePopup.js';
 import EditAvatarPopup from './EditAvatarPopup.js';
 import EditProfilePopup from './EditProfilePopup.js';
 import AddPlacePopup from './AddPlacePopup.js';
-import api from '../utils/Api.js';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false)
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false)
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false)
-  const [userName, setUserName] = React.useState('')
-  const [userDescription, setUserDescription] = React.useState('')
-  const [userAvatar, setUserAvatar] = React.useState('')
-  const [cards, setCards] = React.useState([])
   const [selectedCard, setSelectedCard] = React.useState(null)
-
-  React.useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getInitialCards()])
-    .then(([userData, cards]) => {
-      setUserName(userData.name)
-      setUserDescription(userData.about)
-      setUserAvatar(userData.avatar)
-      setCards(cards)
-    })
-    .catch(err => console.log(`Ошибка при изначальной отрисовке данных: ${err}`));
-  }, [])
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true)
@@ -61,10 +45,6 @@ function App() {
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
         onCardClick={handleCardClick}
-        userName={userName}
-        userDescription={userDescription}
-        userAvatar={userAvatar}
-        cards={cards}
       />
       <Footer/>
       <ImagePopup
@@ -74,14 +54,17 @@ function App() {
       <EditAvatarPopup
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
+        buttonText={'Сохранить'}
       />
       <EditProfilePopup
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
+        buttonText={'Сохранить'}
       />
       <AddPlacePopup
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
+        buttonText={'Создать'}
       />
     </>
   );
