@@ -1,0 +1,31 @@
+.profile__edit-avatar {
+  width: 120px;
+  height: 120px;
+  margin-right: 3.4%;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.8s ease-in-out;
+}
+
+@media screen and (max-width: 1023px) {
+  .profile__edit-avatar {
+    margin-right: 0;
+    margin-bottom: 26px;
+  }
+}
+
+
+.profile__edit-avatar:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url('../../../images/pen.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-color .3s;
+}
+
+.profile__.profile__edit-avatar:focus {
+  outline: #5982fa 3px solid;
+}
