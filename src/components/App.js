@@ -121,26 +121,6 @@ function App() {
     }
   }
 
-  React.useEffect(() => {
-    if (isEditProfilePopupOpen || isEditAvatarPopupOpen || isAddPlacePopupOpen || selectedCard) {
-      function handleEscClose(e) {
-        if (e.key === 'Escape') {
-          closeAllPopups()
-        }
-      }
-
-      document.addEventListener('keydown', e => {
-        handleEscClose(e)
-      })
-
-      return (
-        document.removeEventListener('keydown', e => {
-          handleEscClose(e)
-        })
-      )
-    }
-  }, [isEditProfilePopupOpen, isEditAvatarPopupOpen, isAddPlacePopupOpen, selectedCard])
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <>

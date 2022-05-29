@@ -10,12 +10,9 @@ function EditAvatarPopup(props) {
     props.onUpdateAvatar({
       avatar: avatarRef.current.value
     });
-  }
-  
-  React.useEffect(() => {
-    avatarRef.current.value=''
-  }, [props.isOpen])
 
+    avatarRef.current.value=''
+  }
   return(
     <PopupWithForm
       onOverlayClick={props.onOverlayClick}
