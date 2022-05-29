@@ -123,7 +123,7 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <>
+      <div className="main">
         <Header/>
         <Main
           onEditProfile={handleEditProfileClick}
@@ -161,7 +161,7 @@ function App() {
           onAddPlace={handleAddPlaceSubmit}
           buttonText={'Создать'}
         />
-      </>
+      </div>
     </CurrentUserContext.Provider>
   );
 }
