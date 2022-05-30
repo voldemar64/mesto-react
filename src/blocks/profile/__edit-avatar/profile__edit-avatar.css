@@ -6,8 +6,31 @@
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
   background-color: transparent;
-  transition: background-color 0.8s ease-in-out;
+}
+
+.profile__edit-avatar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 0.8s ease-in-out;
+}
+
+.profile__edit-avatar:hover::before {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url('../../../images/pen.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-color .3s;
 }
 
 @media screen and (max-width: 1023px) {
@@ -15,15 +38,6 @@
     margin-right: 0;
     margin-bottom: 26px;
   }
-}
-
-
-.profile__edit-avatar:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-  background-image: url('../../../images/pen.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: background-color .3s;
 }
 
 .profile__.profile__edit-avatar:focus {
